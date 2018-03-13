@@ -20,14 +20,12 @@ public class Library {
     String itemID;
     boolean onLoan;
     Date dueDate;
-    int borrowerID;
 
     public Library(String title, String author, String ID, boolean loan) {
         this.title = title;
         author_artist = author;
         itemID = ID;
         onLoan = loan;
-
     }
 
     public void printDetails() {
@@ -38,7 +36,7 @@ public class Library {
         } else {
             System.out.println(title + " is not on loan");
         }
-        System.out.println("The due date is " + dueDate);
+
     }
 
     public static Date addDays(Date date, int days) {
@@ -48,23 +46,30 @@ public class Library {
         return cal.getTime();
     }
 
-    public void borrowing(String name, String email, int ID) {
+    public void borrowing(Borrower b) {
         if (onLoan) {
-            System.out.println("This item is on loan.");
+            System.out.println("Sorry, " + title + " is on loan.");
+            System.out.println();
         } else {
             onLoan = true;
             Date today = new Date();
             dueDate = addDays(today, 14);
-            System.out.println("You have borrowed this book."); 
-            Borrower p = new Borrower(name, email, ID);
-        
-        p.UpdateItemsOnLoan(1);
+            System.out.println("You have borrowed this item.");
+            System.out.println("Borrower name: " + b.borrowerName + " Email: " + b.emailAddress + " ID: " + b.borrowerID);
+            System.out.println("The due date is " + dueDate);
+            b.UpdateItemsOnLoan(1);
+            b.GetItemsOnLoan();
+            System.out.println();
         }
 
     }
 
-    public void returning() {
+    public void returning(Borrower b) {
+        System.out.println("You have returned this item.");
+        b.UpdateItemsOnLoan(-1);
         this.onLoan = false;
+        b.GetItemsOnLoan();
+        System.out.println();
     }
 
 }

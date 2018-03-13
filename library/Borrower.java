@@ -26,6 +26,9 @@ public class Borrower {
     public void UpdateItemsOnLoan(int n)
     {
     itemsOnLoan+=n;
-    /*System.out.println("There are "+itemsOnLoan+" items on loan.");*/
+   
+    }
+    public void GetItemsOnLoan()
+    {System.out.println("There are "+itemsOnLoan+" items on loan.");
     }
 }

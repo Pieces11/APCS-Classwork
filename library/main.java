@@ -19,14 +19,16 @@ public class main {
     public static void main(String[] args) {
        Library b = new Book("12 Rules for Life","Jordan Peterson", "X123", false,true);
        b.printDetails();
-         b.borrowing("Susie", "xxx@gmail.com", 123);
-         b.printDetails();
        
-       
-        Library cd = new CD("And Justice for all", "Metallica", "X567", false,"Metal");
+        Library cd = new CD("And Justice for all", "Metallica", "X567", true,"Metal");
         cd.printDetails(); 
         
+        Borrower c=new Borrower("Susie", "xxx@gmail.com", 123);
+       b.borrowing(c);
+      
+        cd.borrowing(c);
         
+        b.returning(c);
     }    
     
     
