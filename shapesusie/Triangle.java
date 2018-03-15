@@ -16,7 +16,8 @@ public class Triangle extends Shape {
     private int side2;
     private int height;
 
-    public Triangle(int b, int h, int x, int y) {
+    public Triangle(int b, int h, int x, int y, String name) {
+        super(name);
         base = b;
         height = h;
         side1 = x;

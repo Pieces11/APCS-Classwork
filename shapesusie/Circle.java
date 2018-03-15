@@ -9,24 +9,29 @@ package shapesusie;
  *
  * @author Du
  */
-public class Circle extends Shape{
+public class Circle extends Shape implements Comparable<Circle> {
 
     private double radius;
-    private static final double PI=3.14;
+    private static final double PI = 3.14;
 
-    public Circle(double r) {
+    public Circle(double r, String name) {
+        super(name);
         radius = r;
-    }
-    
-    public double getArea(){
-        return PI *this.radius*this.radius;
-    }
-    
-    public double getPerimeter(){
-    return PI*2*this.radius;}
 
-public boolean equals(Shape p)
-{
-    return(radius==);
-}
+    }
+
+    public double getArea() {
+        return PI * this.radius * this.radius;
+    }
+
+    public double getPerimeter() {
+        return PI * 2 * this.radius;
+    }
+
+    public int compareTo(Circle a) {
+        return (int) (this.radius - (a.radius));
+    }
+
+
+    
 }

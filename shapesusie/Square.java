@@ -13,7 +13,8 @@ public class Square extends Shape{
    
     private int side;
     
-    public Square(int s){
+    public Square(int s,String name){
+        super(name);
       side=s;
        
     } 
